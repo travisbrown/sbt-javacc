@@ -1,4 +1,6 @@
-organization in ThisBuild := "dev.travisbrown"
+ThisBuild / organization := "dev.travisbrown"
+ThisBuild / scalaVersion := "2.12.14"
+ThisBuild / githubWorkflowPublishTargetBranches := Nil
 
 val compilerOptions = Seq(
   "-deprecation",
@@ -12,22 +14,23 @@ val compilerOptions = Seq(
   "-Ywarn-numeric-widen",
   "-Xfuture",
   "-Yno-adapted-args",
-   "-Ywarn-unused-import"
+  "-Ywarn-unused-import"
 )
 
 val baseSettings = Seq(
   scalacOptions ++= compilerOptions,
-  scalacOptions in (Compile, console) ~= {
+  Compile / console / scalacOptions ~= {
     _.filterNot(Set("-Ywarn-unused-import", "-Ywarn-unused:imports"))
   },
-  scalacOptions in (Test, console) ~= {
+  Test / console / scalacOptions ~= {
     _.filterNot(Set("-Ywarn-unused-import", "-Ywarn-unused:imports"))
   }
 )
 
 val allSettings = baseSettings ++ publishSettings
 
-lazy val root = (project in file("."))
+lazy val root = project
+  .in(file("."))
   .enablePlugins(SbtPlugin)
   .settings(allSettings)
   .settings(
@@ -35,14 +38,13 @@ lazy val root = (project in file("."))
     libraryDependencies += "net.java.dev.javacc" % "javacc" % "7.0.10"
   )
 
-
 lazy val publishSettings = Seq(
   releaseCrossBuild := true,
   releasePublishArtifactsAction := PgpKeys.publishSigned.value,
   homepage := Some(url("https://github.com/travisbrown/sbt-javacc")),
   licenses := Seq("Apache 2.0" -> url("http://www.apache.org/licenses/LICENSE-2.0")),
   publishMavenStyle := true,
-  publishArtifact in Test := false,
+  Test / publishArtifact := false,
   pomIncludeRepository := { _ => false },
   publishTo := {
     val nexus = "https://oss.sonatype.org/"
@@ -68,4 +70,3 @@ lazy val publishSettings = Seq(
     )
   )
 )
-

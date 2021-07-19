@@ -1,7 +1,7 @@
 # sbt-javacc
 
-[![Build status](https://img.shields.io/travis/travisbrown/sbt-javacc/master.svg)](https://travis-ci.org/travisbrown/sbt-javacc)
-[![Maven Central](https://img.shields.io/maven-central/v/dev.travisbrown/sbt-javacc_2.12_1.0.svg)](https://maven-badges.herokuapp.com/maven-central/dev.travisbrown/sbt-javacc_2.12_1.0)
+[![Build status](https://img.shields.io/github/workflow/status/travisbrown/sbt-javacc/Continuous%20Integration.svg)](https://github.com/travisbrown/sbt-javacc/actions)
+[![Maven Central](https://maven-badges.herokuapp.com/maven-central/dev.travisbrown/sbt-javacc/badge.svg)](https://maven-badges.herokuapp.com/maven-central/dev.travisbrown/sbt-javacc_2.12_1.0)
 
 This is a minimal [sbt](https://www.scala-sbt.org/) plugin for [JavaCC](https://javacc.github.io/javacc/).
 
