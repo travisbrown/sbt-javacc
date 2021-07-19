@@ -32,10 +32,9 @@ object JavaCCPlugin extends AutoPlugin {
       val args = Array[String](
         s"-STATIC=$isStatic",
         s"-OUTPUT_DIRECTORY=${output.getAbsolutePath}",
-        source.getAbsolutePath 
+        source.getAbsolutePath
       )
       Main.mainProgram(args)
     }
   }
 }
-
