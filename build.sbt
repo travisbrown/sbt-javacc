@@ -1,5 +1,5 @@
 ThisBuild / organization := "dev.travisbrown"
-ThisBuild / scalaVersion := "2.12.15"
+ThisBuild / scalaVersion := "2.13.7"
 ThisBuild / githubWorkflowPublishTargetBranches := Nil
 
 val compilerOptions = Seq(
