@@ -35,7 +35,7 @@ lazy val root = project
   .settings(allSettings)
   .settings(
     name := "sbt-javacc",
-    libraryDependencies += "net.java.dev.javacc" % "javacc" % "7.0.10"
+    libraryDependencies += "net.java.dev.javacc" % "javacc" % "7.0.13"
   )
 
 lazy val publishSettings = Seq(
